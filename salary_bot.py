@@ -29,8 +29,8 @@ def send_welcome(message):
         message.chat.id,
         f"👋 Привет! Я бот для расчета взносов по зарплатам.\n"
         f"📈 Текущие зарплаты:\n"
-        f"• Ваша: {format_number(MY_SALARY)} ₽\n"
-        f"• Партнера: {format_number(PARTNER_SALARY)} ₽\n\n"
+        f"• Егоричек: {format_number(MY_SALARY)} ₽\n"
+        f"• Линчичек: {format_number(PARTNER_SALARY)} ₽\n\n"
         "Нажмите '💵 Рассчитать взносы' чтобы начать расчет.",
         reply_markup=markup,
         parse_mode='Markdown'
@@ -46,11 +46,11 @@ def show_settings(message):
     bot.send_message(
         message.chat.id,
         f"⚙️ *Текущие настройки:*\n\n"
-        f"• Ваша зарплата: `{format_number(MY_SALARY)}` ₽\n"
-        f"• Зарплата партнера: `{format_number(PARTNER_SALARY)}` ₽\n"
+        f"• Егоричек: `{format_number(MY_SALARY)}` ₽\n"
+        f"• Линчичек: `{format_number(PARTNER_SALARY)}` ₽\n"
         f"• Общий доход: `{format_number(total_income)}` ₽\n"
-        f"• Ваша доля: {my_share:.1%}\n"
-        f"• Доля партнера: {partner_share:.1%}",
+        f"• Егоричека доля: {my_share:.1%}\n"
+        f"• Линчичека доля: {partner_share:.1%}",
         parse_mode='Markdown'
     )
 
@@ -88,17 +88,17 @@ def calculate_contributions(message, amount):
     result_text = f"""
 💡 *Результаты расчета:*
 
-• Ваша зарплата: `{format_number(MY_SALARY)}` ₽
-• Зарплата партнера: `{format_number(PARTNER_SALARY)}` ₽
+• Егоричкова зарплата: `{format_number(MY_SALARY)}` ₽
+• Линчикова зарплата: `{format_number(PARTNER_SALARY)}` ₽
 • Общая сумма: `{format_number(amount)}` ₽
 
 📊 *Пропорции:*
-• Ваша доля: {my_share:.1%}
-• Доля партнера: {partner_share:.1%}
+• Егорикова доля: {my_share:.1%}
+• Линчикова доля: {partner_share:.1%}
 
 💵 *Взносы:*
-• Ваш взнос: `{format_number(my_contribution)}` ₽
-• Взнос партнера: `{format_number(partner_contribution)}` ₽
+• Егориков взнос: `{format_number(my_contribution)}` ₽
+• Линчиков взнос: `{format_number(partner_contribution)}` ₽
 
 ✅ *Проверка:* `{format_number(my_contribution + partner_contribution)}` ₽
 """
@@ -125,8 +125,8 @@ def handle_all_messages(message):
 if __name__ == '__main__':
     print("=" * 50)
     print("Бот запущен с настройками:")
-    print(f"• Ваша зарплата: {format_number(MY_SALARY)} ₽")
-    print(f"• Зарплата партнера: {format_number(PARTNER_SALARY)} ₽")
+    print(f"• Егорикова зарплата: {format_number(MY_SALARY)} ₽")
+    print(f"• Линчикова зарплата: {format_number(PARTNER_SALARY)} ₽")
     print(f"• Общий доход: {format_number(MY_SALARY + PARTNER_SALARY)} ₽")
     print("=" * 50)
 
